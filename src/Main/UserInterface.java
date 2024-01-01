@@ -115,7 +115,7 @@ public class UserInterface {
 
     public void drawPauseScreen() {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN ,80F));
-        String text = "PAUSED";
+        String text = "JE MOEDER IS GAY HAHA";
         int x = getXCenterText(text);
         int y = gp.screenHeight/2;
 
