@@ -10,11 +10,18 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Player extends Entity {
+
+    /*
+    Classe van het personage dat gespeeld wordt door de gebruiker
+     */
+
     GamePanel gp;
     KeyHandler keyH;
 
     public final int screenX;
     public final int screenY;
+
+    // Objecten die de speler heeft
     public int hasKeyR = 0;
     public int hasKeyY = 0;
     public int hasKeyB = 0;
@@ -25,9 +32,11 @@ public class Player extends Entity {
         this.gp = gp;
         this.keyH = keyH;
 
+        // Player size
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
         screenY = gp.screenHeight/2 - (gp.tileSize/2);
 
+        // Solid area values
         solidArea = new Rectangle();
         solidArea.x = 15;
         solidArea.y = 21;
@@ -41,6 +50,13 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
+        /*
+        Default waardes
+         - worldX, worldY = Begin positie op de map
+         - speed = Standaard loop snelheid
+         - direction = Begin direction
+         */
+
         worldX = gp.tileSize * 33;
         worldY = gp.tileSize * 44;
 
@@ -49,6 +65,7 @@ public class Player extends Entity {
     }
 
     public void getPlayerImage() {
+        // Getting the right image for the right movement
         Up1 = setup("Up1");
         Up2 = setup("Up2");
         Down1 = setup("Down1");
@@ -60,6 +77,7 @@ public class Player extends Entity {
     }
 
     public BufferedImage setup(String imageName) {
+        // Reading the images
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;
 
@@ -74,6 +92,7 @@ public class Player extends Entity {
     }
 
     public void update() {
+        // Getting the right image for the right direction
         if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
             if(keyH.upPressed) {
                 direction = "Up";
@@ -103,6 +122,7 @@ public class Player extends Entity {
                 }
             }
 
+            // Loop animatie
             spriteCounter++;
             if(spriteCounter > 12) {
                 if(spriteNumber == 1) {
@@ -116,7 +136,10 @@ public class Player extends Entity {
     }
 
     public void pickUpObject(int index) {
+        // Het oppakken van objecten
         if(index != 999) {
+
+            // Kan heel veel meer efficienter
             String objectName = gp.obj[index].name;
 
             switch (objectName) {
@@ -186,6 +209,7 @@ public class Player extends Entity {
     }
 
     public void draw(Graphics2D g2) {
+        // Rendering the right image
         BufferedImage image = null;
 
         switch (direction) {
@@ -222,7 +246,6 @@ public class Player extends Entity {
                 }
             }
         }
-
         g2.drawImage(image, screenX, screenY,null);
     }
 }

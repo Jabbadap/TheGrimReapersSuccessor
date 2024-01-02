@@ -15,10 +15,10 @@ public class UserInterface {
     GamePanel gp;
     Graphics2D g2;
     Font arial_40, arial_80B;
-    BufferedImage keyImage;
-    BufferedImage keyImageR;
-    BufferedImage keyImageB;
-    BufferedImage keyImageY;
+    BufferedImage keyImage; // delete later
+    BufferedImage keyImageR; // delete later
+    BufferedImage keyImageB; // delete later
+    BufferedImage keyImageY; // delete later
     public boolean messageOn = false;
     public String message = "";
     int messageCounter = 0;
@@ -30,17 +30,17 @@ public class UserInterface {
         arial_40 = new Font("Arial", Font.PLAIN, 40);
         arial_80B = new Font("Arial", Font.BOLD, 80);
 
-        OBJ_Key key = new OBJ_Key(gp);
-        keyImage = key.image;
+        OBJ_Key key = new OBJ_Key(gp); // delete later
+        keyImage = key.image; // delete later
 
-        OBJ_KeyR keyR = new OBJ_KeyR(gp);
-        keyImageR = keyR.image;
+        OBJ_KeyR keyR = new OBJ_KeyR(gp); // delete later
+        keyImageR = keyR.image; // delete later
 
-        OBJ_KeyB keyB = new OBJ_KeyB(gp);
-        keyImageB = keyB.image;
+        OBJ_KeyB keyB = new OBJ_KeyB(gp); // delete later
+        keyImageB = keyB.image; // delete later
 
-        OBJ_KeyY keyY = new OBJ_KeyY(gp);
-        keyImageY = keyY.image;
+        OBJ_KeyY keyY = new OBJ_KeyY(gp); // delete later
+        keyImageY = keyY.image; // delete later
     }
 
     public void showMessage(String text) {
@@ -49,6 +49,8 @@ public class UserInterface {
     }
 
     public void draw(Graphics2D g2) {
+
+        // Delete this to...
         if (gameFinished == true) {
 
             g2.setFont(arial_40);
@@ -101,6 +103,8 @@ public class UserInterface {
                 }
             }
 
+            // ...Here
+
             this.g2 = g2;
             g2.setFont(arial_40);
             g2.setColor(Color.white);
@@ -115,7 +119,7 @@ public class UserInterface {
 
     public void drawPauseScreen() {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN ,80F));
-        String text = "JE MOEDER IS GAY HAHA";
+        String text = "JE MOEDER IS GAY";
         int x = getXCenterText(text);
         int y = gp.screenHeight/2;
 
