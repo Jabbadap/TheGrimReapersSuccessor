@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Player extends Entity {
 
     /*
-    Classe van het personage dat gespeeld wordt door de gebruiker
+    Class van het personage dat gespeeld wordt door de gebruiker
      */
 
     GamePanel gp;
@@ -21,7 +21,7 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
-    // Objecten die de speler heeft
+    // Objecten die de speler heeft kan verbeterd worden
     public int hasKeyR = 0;
     public int hasKeyY = 0;
     public int hasKeyB = 0;
@@ -139,7 +139,7 @@ public class Player extends Entity {
         // Het oppakken van objecten
         if(index != 999) {
 
-            // Kan heel veel meer efficienter
+            // To delete
             String objectName = gp.obj[index].name;
 
             switch (objectName) {
