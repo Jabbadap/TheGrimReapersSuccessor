@@ -132,6 +132,11 @@ public class Player extends Entity {
             String objectName = gp.obj[index].name;
 
             switch (objectName) {
+                case "Key":
+                    gp.obj[index] = null;
+                    gp.ui.showMessage("You got a key!");
+                    hasKey++;
+                    break;
                 case "KeyR":
                     hasKeyR++;
                     gp.obj[index] = null;
@@ -188,10 +193,6 @@ public class Player extends Entity {
                     else {
                         gp.ui.showMessage("You need a key!");
                     }
-                    break;
-                case "Key":
-                    gp.obj[index] = null;
-                    hasKey++;
                     break;
             }
         }

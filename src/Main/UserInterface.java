@@ -15,10 +15,10 @@ public class UserInterface {
     GamePanel gp;
     Graphics2D g2;
     Font arial_40, arial_80B;
-    BufferedImage keyImage; // delete later
-    BufferedImage keyImageR; // delete later
-    BufferedImage keyImageB; // delete later
-    BufferedImage keyImageY; // delete later
+    BufferedImage keyImage;
+    BufferedImage keyImageR;
+    BufferedImage keyImageB;
+    BufferedImage keyImageY;
     public boolean messageOn = false;
     public String message = "";
     int messageCounter = 0;
@@ -30,17 +30,17 @@ public class UserInterface {
         arial_40 = new Font("Arial", Font.PLAIN, 40);
         arial_80B = new Font("Arial", Font.BOLD, 80);
 
-        OBJ_Key key = new OBJ_Key(gp); // delete later
-        keyImage = key.image; // delete later
+        OBJ_Key key = new OBJ_Key(gp);
+        keyImage = key.image;
 
-        OBJ_KeyR keyR = new OBJ_KeyR(gp); // delete later
-        keyImageR = keyR.image; // delete later
+        OBJ_KeyR keyR = new OBJ_KeyR(gp);
+        keyImageR = keyR.image;
 
-        OBJ_KeyB keyB = new OBJ_KeyB(gp); // delete later
-        keyImageB = keyB.image; // delete later
+        OBJ_KeyB keyB = new OBJ_KeyB(gp);
+        keyImageB = keyB.image;
 
-        OBJ_KeyY keyY = new OBJ_KeyY(gp); // delete later
-        keyImageY = keyY.image; // delete later
+        OBJ_KeyY keyY = new OBJ_KeyY(gp);
+        keyImageY = keyY.image;
     }
 
     public void showMessage(String text) {
@@ -50,31 +50,17 @@ public class UserInterface {
 
     public void draw(Graphics2D g2) {
 
-        // Delete this to...
-        if (gameFinished == true) {
+        if (gameFinished) {
 
             g2.setFont(arial_40);
             g2.setColor(Color.white);
-
-            String text;
-            int textLength;
-            int x;
-            int y;
-
-            text = "You found the treasure!";
-            textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-            x = gp.screenWidth/2 - textLength/2;
-            y = gp.screenHeight/2 - (gp.tileSize * 3);
-            g2.drawString(text, x, y);
+            g2.drawString("You found the treasure!", getXCenterText("You found the treasure!"),
+                    gp.screenHeight/2 - (gp.tileSize * 3));
 
             g2.setFont(arial_80B);
             g2.setColor(Color.white);
-
-            text = "Congratulations!";
-            textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-            x = gp.screenWidth/2 - textLength/2;
-            y = gp.screenHeight/2 + (gp.tileSize * 3);
-            g2.drawString(text, x, y);
+            g2.drawString("Congratualations!", getXCenterText("Congratualations!"),
+                    gp.screenHeight/2 + (gp.tileSize * 3));
 
             gp.gameThread = null;
         }
@@ -96,7 +82,7 @@ public class UserInterface {
             g2.setColor(Color.white);
 
             // MESSAGE
-            if(messageOn == true) {
+            if(messageOn) {
                 g2.setFont(g2.getFont().deriveFont(30F));
                 g2.drawString(message, 175, 55);
 
@@ -122,7 +108,7 @@ public class UserInterface {
 
     public void drawPauseScreen() {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN ,80F));
-        String text = "PADOOO IS GAY";
+        String text = "PAUSED";
         int x = getXCenterText(text);
         int y = gp.screenHeight/2;
 
@@ -131,7 +117,6 @@ public class UserInterface {
 
     public int getXCenterText(String text) {
         int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        int x = gp.getWidth()/2 - length/2;
-        return x;
+        return gp.getWidth()/2 - length/2;
     }
 }
