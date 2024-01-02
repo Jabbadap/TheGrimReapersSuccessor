@@ -1,26 +1,16 @@
 package Entity;
 
+import Main.GamePanel;
+import Main.UtilityTool;
+
+import javax.imageio.ImageIO;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Entity {
-    /*
-    Deze class is een superclasse om verschillende entities aan te maken, zoals de player, NPC's en enemies etc.
 
-    Variabelen die meegegeven kunnen/moeten worden bij het aanmaken van een entity:
-        - worldx, worldY = Laat begin positie op de map zien
-        - speed = Snelheid van je entity
-        - Up1, Up2 etc. = De afbeeldingen die gebruikt worden om de entity te visualiseren
-        - direction = De start direction van de entity
-
-    Standaard variabelen:
-        - spriteCounter, default 0 = Wordt gebruikt om het aantal frames wanneer de afbeelding moet switchen tijdens
-            het bewegen weer te geven voor de loop animatie, hoe minder frames, hoe sneller de loopanimatie
-        - spriteNumber, default 1 = De frames waar de loop animatie tussen switcht (bijvoorbeeld Up1 en Up2)
-        - solidArea = Het gedeelte van je entity dat collision kan vormen
-        - solidAreaDefaultX, solidAreaDefaultY = De default X en Y waarden van de solidArea
-        - collisionOn, default false = Of de entity collision kan vormen met andere objecten of niet
-     */
+    GamePanel gp;
 
     // Set default variables
     public int worldX, worldY;
@@ -31,8 +21,26 @@ public class Entity {
     // Standard variables
     public int spriteCounter = 0;
     public int spriteNumber = 1;
-    public Rectangle solidArea;
+    public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
 
+    public Entity(GamePanel gp) {
+        this.gp = gp;
+    }
+
+    public BufferedImage setup(String imagePath) {
+        // Reading the images
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage image = null;
+
+        try {
+            image = ImageIO.read(getClass().getClassLoader().getResourceAsStream(imagePath + ".png"));
+            image = uTool.scaleImage(image, gp.tileSize, gp.tileSize);
+
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        return image;
+    }
 }

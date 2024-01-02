@@ -14,7 +14,6 @@ public class Player extends Entity {
     Class van het personage dat gespeeld wordt door de gebruiker
      */
 
-    GamePanel gp;
     KeyHandler keyH;
 
     public final int screenX;
@@ -28,7 +27,9 @@ public class Player extends Entity {
     public int coins = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
-        this.gp = gp;
+
+        super(gp);
+
         this.keyH = keyH;
 
         // Player size
@@ -65,29 +66,14 @@ public class Player extends Entity {
 
     public void getPlayerImage() {
         // Getting the right image for the right movement
-        Up1 = setup("Up1");
-        Up2 = setup("Up2");
-        Down1 = setup("Down1");
-        Down2 = setup("Down2");
-        Left1 = setup("Left1");
-        Left2 = setup("Left2");
-        Right1 = setup("Right1");
-        Right2 = setup("Right2");
-    }
-
-    public BufferedImage setup(String imageName) {
-        // Reading the images
-        UtilityTool uTool = new UtilityTool();
-        BufferedImage image = null;
-
-        try {
-            image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("player/" + imageName + ".png"));
-            image = uTool.scaleImage(image, gp.tileSize, gp.tileSize);
-
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-        return image;
+        Up1 = setup("player/Up1");
+        Up2 = setup("player/Up2");
+        Down1 = setup("player/Down1");
+        Down2 = setup("player/Down2");
+        Left1 = setup("player/Left1");
+        Left2 = setup("player/Left2");
+        Right1 = setup("player/Right1");
+        Right2 = setup("player/Right2");
     }
 
     public void update() {
