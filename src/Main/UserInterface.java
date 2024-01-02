@@ -1,8 +1,6 @@
 package Main;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import objects.OBJ_Key;
@@ -23,6 +21,7 @@ public class UserInterface {
     public String message = "";
     int messageCounter = 0;
     public boolean gameFinished = false;
+    public String currentDialogue = "";
 
     public UserInterface(GamePanel gp) {
         this.gp = gp;
@@ -97,11 +96,20 @@ public class UserInterface {
             this.g2 = g2;
             g2.setFont(arial_40);
             g2.setColor(Color.white);
+
+            // PLAY STATE
             if(gp.gameState == gp.playState) {
                 // Do playstate stuff later
             }
+
+            // PAUSE STATE
             if(gp.gameState == gp.pauseState) {
                 drawPauseScreen();
+            }
+
+            // DIALOGUE STATE
+            if(gp.gameState == gp.dialogueState) {
+                drawDialogueScreen();
             }
         }
     }
@@ -113,6 +121,37 @@ public class UserInterface {
         int y = gp.screenHeight/2;
 
         g2.drawString(text, x, y);
+    }
+
+    public void drawDialogueScreen() {
+        // WINDOW
+        int x = gp.tileSize;
+        int y = gp.tileSize * 7;
+        int width = gp.screenWidth - (gp.tileSize * 2);
+        int height = gp.tileSize*4;
+        drawSubWindow(x, y, width, height);
+
+        // TEXT
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 28F));
+        x += gp.tileSize;
+        y += gp.tileSize;
+        for(String line : currentDialogue.split("\n")) {
+            g2.drawString(line, x, y);
+            y += 40;
+        }
+    }
+
+    public void drawSubWindow(int x, int y, int width, int height) {
+        // WINDOW
+        Color c = new Color(0,0,0,190);
+        g2.setColor(c);
+        g2.fillRoundRect(x, y, width, height, 35, 35);
+
+        // WHITE OUTLINE
+        c = new Color(255,255,255, 180);
+        g2.setColor(c);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRoundRect(x+5, y+5, width-10, height-1, 25, 25);
     }
 
     public int getXCenterText(String text) {

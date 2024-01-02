@@ -31,7 +31,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     // SYSTEM
     TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler(this);
+    public KeyHandler keyH = new KeyHandler(this);
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter aSetter = new AssetSetter(this);
     public UserInterface ui = new UserInterface(this);
@@ -46,6 +46,7 @@ public class GamePanel extends JPanel implements Runnable{
     public int gameState;
     public final int playState = 1;
     public final int pauseState = 2;
+    public final int dialogueState = 3;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -118,7 +119,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         // DEBUG
         long drawStart = 0;
-        if(keyH.checkDrawTime == true) {
+        if(keyH.checkDrawTime) {
             drawStart = System.nanoTime();
         }
 

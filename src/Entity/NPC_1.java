@@ -13,6 +13,7 @@ public class NPC_1 extends Entity {
         speed = 1;
 
         getImage();
+        setDialogue();
     }
 
     public void getImage() {
@@ -25,6 +26,11 @@ public class NPC_1 extends Entity {
         Left2 = setup("player/Left2");
         Right1 = setup("player/Right1");
         Right2 = setup("player/Right2");
+    }
+
+    public void setDialogue() {
+        dialogues[0] = "Padooo is gay";
+        dialogues[1] = "HOERHOERHOER\n\nHür";
     }
 
     public void setAction() {
@@ -46,5 +52,9 @@ public class NPC_1 extends Entity {
             }
             actionLockCounter = 0;
         }
+    }
+
+    public void speak() {
+        super.speak();
     }
 }
