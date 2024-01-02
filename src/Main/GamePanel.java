@@ -98,7 +98,14 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update() {
         if(gameState == playState) {
+            // PLAYER
             player.update();
+            // NPC
+            for(int i = 0; i < npc.length; i++) {
+                if(npc[i] != null) {
+                    npc[i].update();
+                }
+            }
         }
         if(gameState == pauseState) {
             // nothing
@@ -139,9 +146,9 @@ public class GamePanel extends JPanel implements Runnable{
         ui.draw(g2);
 
         // DEBUG
-        if(keyH.checkDrawTime == true) {
+        if(keyH.checkDrawTime) {
             long drawEnd = System.nanoTime();
-            long passed = drawEnd = drawStart;
+            long passed = drawEnd - drawStart;
             g2.setColor(Color.white);
             g2.drawString("Draw Time: " + passed, 10, 400);
             System.out.println("Draw Time: " + passed);

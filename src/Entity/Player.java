@@ -94,8 +94,12 @@ public class Player extends Entity {
             gp.cChecker.checkTile(this);
 
             // CHECK OBJECT COLLISION
-            int objIndex = gp.cChecker.CheckObject(this, true);
+            int objIndex = gp.cChecker.checkObject(this, true);
             pickUpObject(objIndex);
+
+            // CHECK NPC COLLISION
+            int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
+            interactNPC(npcIndex);
 
             // IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(!collisionOn) {
@@ -190,6 +194,11 @@ public class Player extends Entity {
                     hasKey++;
                     break;
             }
+        }
+    }
+
+    public void interactNPC(int i) {
+        if(i != 999) {
         }
     }
 

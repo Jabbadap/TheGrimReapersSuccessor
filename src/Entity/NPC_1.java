@@ -2,6 +2,8 @@ package Entity;
 
 import Main.GamePanel;
 
+import java.util.Random;
+
 public class NPC_1 extends Entity {
 
     public NPC_1(GamePanel gp) {
@@ -23,5 +25,26 @@ public class NPC_1 extends Entity {
         Left2 = setup("player/Left2");
         Right1 = setup("player/Right1");
         Right2 = setup("player/Right2");
+    }
+
+    public void setAction() {
+        actionLockCounter++;
+        if(actionLockCounter == 120) {
+            Random random = new Random();
+            int i = random.nextInt(100)+1;
+            if(i <= 25) {
+                direction = "Up";
+            }
+            if(i > 25 && i <= 50) {
+                direction = "Down";
+            }
+            if(i > 50 && i <= 75) {
+                direction = "Left";
+            }
+            if(i > 75) {
+                direction = "Right";
+            }
+            actionLockCounter = 0;
+        }
     }
 }

@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class Entity {
 
@@ -24,9 +25,43 @@ public class Entity {
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
+    public int actionLockCounter = 0;
 
     public Entity(GamePanel gp) {
         this.gp = gp;
+    }
+
+    public void setAction() {
+
+    }
+
+    public void update() {
+        setAction();
+        collisionOn = false;
+        gp.cChecker.checkTile(this);
+        gp.cChecker.checkObject(this, false);
+        gp.cChecker.checkPlayer(this);
+
+        // IF COLLISION IS FALSE, PLAYER CAN MOVE
+        if(!collisionOn) {
+            switch (direction) {
+                case "Up" -> worldY -= speed;
+                case "Down" -> worldY += speed;
+                case "Left" -> worldX -= speed;
+                case "Right" -> worldX += speed;
+            }
+        }
+
+        // Loop animatie
+        spriteCounter++;
+        if(spriteCounter > 12) {
+            if(spriteNumber == 1) {
+                spriteNumber = 2;
+            } else if(spriteNumber == 2) {
+                spriteNumber = 1;
+            }
+            spriteCounter = 0;
+        }
     }
 
     public void draw(Graphics2D g2) {
@@ -84,7 +119,7 @@ public class Entity {
         BufferedImage image = null;
 
         try {
-            image = ImageIO.read(getClass().getClassLoader().getResourceAsStream(imagePath + ".png"));
+            image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(imagePath + ".png")));
             image = uTool.scaleImage(image, gp.tileSize, gp.tileSize);
 
         } catch(IOException e) {
