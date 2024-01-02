@@ -23,7 +23,7 @@ public class Player extends Entity {
 
     // Objecten die de speler heeft kan verbeterd worden
     public int hasKeyR = 0;
-    public int hasKeyY = 0;
+    public int hasKeyY = 0; //
     public int hasKeyB = 0;
     public int hasKey = 0;
     public int coins = 0;
