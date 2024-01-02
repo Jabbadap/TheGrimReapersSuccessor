@@ -79,16 +79,21 @@ public class UserInterface {
             gp.gameThread = null;
         }
         else {
+            if(gp.player.hasKey != 0) {
+                g2.drawImage(keyImage, 25, 20, gp.tileSize, gp.tileSize, null);
+            }
+            if(gp.player.hasKeyR != 0) {
+                g2.drawImage(keyImageR, 25, 20, gp.tileSize, gp.tileSize, null);
+            }
+            if(gp.player.hasKeyB != 0) {
+                g2.drawImage(keyImageB, 25, 20, gp.tileSize, gp.tileSize, null);
+            }
+            if(gp.player.hasKeyY != 0) {
+                g2.drawImage(keyImageY, 25, 20, gp.tileSize, gp.tileSize, null);
+            }
+
             g2.setFont(arial_40);
             g2.setColor(Color.white);
-            g2.drawImage(keyImage, 25, 20, gp.tileSize, gp.tileSize, null);
-            g2.drawImage(keyImageR, 25, 80, gp.tileSize, gp.tileSize, null);
-            g2.drawImage(keyImageB, 25, 140, gp.tileSize, gp.tileSize, null);
-            g2.drawImage(keyImageY, 25, 200, gp.tileSize, gp.tileSize, null);
-            g2.drawString("= " + gp.player.hasKey, 75, 55);
-            g2.drawString("= " + gp.player.hasKeyR, 75, 115);
-            g2.drawString("= " + gp.player.hasKeyB, 75, 175);
-            g2.drawString("= " + gp.player.hasKeyY, 75, 235);
 
             // MESSAGE
             if(messageOn == true) {
@@ -102,8 +107,6 @@ public class UserInterface {
                     messageOn = false;
                 }
             }
-
-            // ...Here
 
             this.g2 = g2;
             g2.setFont(arial_40);
@@ -119,7 +122,7 @@ public class UserInterface {
 
     public void drawPauseScreen() {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN ,80F));
-        String text = "JE MOEDER IS GAY";
+        String text = "PAUSED";
         int x = getXCenterText(text);
         int y = gp.screenHeight/2;
 
