@@ -1,6 +1,7 @@
 package Main;
 
 import Entity.NPC_1;
+import Entity.NPC_2;
 import Entity.NPC_GrimmReaper;
 import objects.*;
 
@@ -47,13 +48,18 @@ public class AssetSetter {
     }
 
     public void setNPC() {
-        gp.npc[0] = new NPC_1(gp);
+        gp.npc[0] = new NPC_GrimmReaper(gp);
         gp.npc[0].worldX = gp.tileSize * 33;
-        gp.npc[0].worldY = gp.tileSize * 20;
+        gp.npc[0].worldY = gp.tileSize * 40;
 
-        gp.npc[1] = new NPC_GrimmReaper(gp);
+        gp.npc[1] = new NPC_1(gp);
         gp.npc[1].worldX = gp.tileSize * 33;
-        gp.npc[1].worldY = gp.tileSize * 40;
+        gp.npc[1].worldY = gp.tileSize * 20;
+
+        gp.npc[2] = new NPC_2(gp);
+        gp.npc[2].worldX = gp.tileSize * 16;
+        gp.npc[2].worldY = gp.tileSize * 35;
+
     }
 }
 
