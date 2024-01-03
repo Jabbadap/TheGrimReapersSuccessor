@@ -65,16 +65,16 @@ public class UserInterface {
         }
         else {
             if(gp.player.hasKey != 0) {
-                g2.drawImage(keyImage, 25, 20, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(keyImage, 20, 20, gp.tileSize, gp.tileSize, null);
             }
             if(gp.player.hasKeyR != 0) {
-                g2.drawImage(keyImageR, 25, 20, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(keyImageR, 20, 20, gp.tileSize, gp.tileSize, null);
             }
             if(gp.player.hasKeyB != 0) {
-                g2.drawImage(keyImageB, 25, 20, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(keyImageB, 20, 20, gp.tileSize, gp.tileSize, null);
             }
             if(gp.player.hasKeyY != 0) {
-                g2.drawImage(keyImageY, 25, 20, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(keyImageY, 20, 20, gp.tileSize, gp.tileSize, null);
             }
 
             g2.setFont(arial_40);
