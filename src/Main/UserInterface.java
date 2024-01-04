@@ -83,7 +83,7 @@ public class UserInterface {
             // MESSAGE
             if(messageOn) {
                 g2.setFont(g2.getFont().deriveFont(30F));
-                g2.drawString(message, 175, 55);
+                g2.drawString(message, 80, 55);
 
                 messageCounter++;
 
@@ -132,7 +132,7 @@ public class UserInterface {
         drawSubWindow(x, y, width, height);
 
         // TEXT
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 28F));
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 14F));
         x += gp.tileSize;
         y += gp.tileSize;
         for(String line : currentDialogue.split("\n")) {
