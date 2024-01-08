@@ -58,7 +58,7 @@ public class UserInterface {
 
             g2.setFont(arial_80B);
             g2.setColor(Color.white);
-            g2.drawString("Congratualations!", getXCenterText("Congratualations!"),
+            g2.drawString("Congratualations!", getXCenterText("Congratualations!")/5,
                     gp.screenHeight/2 + (gp.tileSize * 3));
 
             gp.gameThread = null;
@@ -125,8 +125,8 @@ public class UserInterface {
 
     public void drawDialogueScreen() {
         // WINDOW
-        int x = gp.tileSize;
-        int y = gp.tileSize * 7;
+        int x = gp.tileSize/2;
+        int y = gp.tileSize * 7 + gp.tileSize/2;
         int width = gp.screenWidth - (gp.tileSize * 2);
         int height = gp.tileSize*4;
         drawSubWindow(x, y, width, height);

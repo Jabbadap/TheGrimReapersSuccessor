@@ -17,10 +17,10 @@ public class Player extends Entity {
     public final int screenY;
 
     // Objecten die de speler heeft kan verbeterd worden
-    public int hasKeyG = 0;
+    public int hasKeyG = 1;
     public int hasKeyY = 0;
     public int hasKeyB = 0;
-    public int hasKeyR = 0;
+    public int hasKeyR = 1;
     public int coins = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {

@@ -4,6 +4,7 @@ import Main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.util.Objects;
 
 public class OBJ_KeyB extends SuperObject {
 
@@ -15,7 +16,7 @@ public class OBJ_KeyB extends SuperObject {
 
         name = "KeyB";
         try {
-            image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("objects/KeyB.png"));
+            image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("objects/KeyB.png")));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);
 
         } catch (IOException e) {
