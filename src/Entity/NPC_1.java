@@ -18,14 +18,14 @@ public class NPC_1 extends Entity {
 
     public void getImage() {
         // Getting the right image for the right movement
-        Up1 = setup("player/Up1");
-        Up2 = setup("player/Up2");
-        Down1 = setup("player/Down1");
-        Down2 = setup("player/Down2");
-        Left1 = setup("player/Left1");
-        Left2 = setup("player/Left2");
-        Right1 = setup("player/Right1");
-        Right2 = setup("player/Right2");
+        Up1 = setup("NPC/GrimmU");
+        Up2 = setup("NPC/GrimmU");
+        Down1 = setup("NPC/GrimmD");
+        Down2 = setup("NPC/GrimmD");
+        Left1 = setup("NPC/GrimmL");
+        Left2 = setup("NPC/GrimmL");
+        Right1 = setup("NPC/GrimmR");
+        Right2 = setup("NPC/GrimmR");
     }
 
     public void setDialogue() {

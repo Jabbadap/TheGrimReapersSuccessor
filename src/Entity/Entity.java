@@ -26,7 +26,7 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
     public int actionLockCounter = 0;
-    String dialogues[] = new String[20];
+    String dialogues[] = new String[40];
     int dialogueIndex = 0;
 
     public Entity(GamePanel gp) {
@@ -41,6 +41,10 @@ public class Entity {
         }
         gp.ui.currentDialogue = dialogues[dialogueIndex];
         dialogueIndex++;
+        if (dialogueIndex == 21) {
+            gp.player.hasKeyG++;
+            gp.ui.showMessage("You got a key!");
+        }
 
         switch (gp.player.direction) {
             case "Up" -> direction = "Down";

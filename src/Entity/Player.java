@@ -2,12 +2,9 @@ package Entity;
 
 import Main.GamePanel;
 import Main.KeyHandler;
-import Main.UtilityTool;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class Player extends Entity {
     /*
@@ -20,10 +17,10 @@ public class Player extends Entity {
     public final int screenY;
 
     // Objecten die de speler heeft kan verbeterd worden
-    public int hasKeyR = 0;
+    public int hasKeyG = 0;
     public int hasKeyY = 0;
     public int hasKeyB = 0;
-    public int hasKey = 0;
+    public int hasKeyR = 0;
     public int coins = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -131,12 +128,8 @@ public class Player extends Entity {
             // To delete
             String objectName = gp.obj[index].name;
 
+
             switch (objectName) {
-                case "Key":
-                    gp.obj[index] = null;
-                    gp.ui.showMessage("You got a key!");
-                    hasKey++;
-                    break;
                 case "KeyR":
                     hasKeyR++;
                     gp.obj[index] = null;
@@ -152,11 +145,11 @@ public class Player extends Entity {
                     gp.obj[index] = null;
                     gp.ui.showMessage("You got a key!");
                     break;
-                case "DoorR":
-                    if(hasKeyR > 0) {
+                case "DoorG":
+                    if(hasKeyG > 0) {
                         gp.obj[index] = null;
                         gp.ui.showMessage("You opened a door!");
-                        hasKeyR--;
+                        hasKeyG--;
                     }
                     else {
                         gp.ui.showMessage("You need a key!");
@@ -183,11 +176,11 @@ public class Player extends Entity {
                     }
                     break;
                 case "Chest":
-                    if(hasKey > 0) {
+                    if(hasKeyR > 0) {
                         gp.obj[index] = null;
                         coins = 100;
                         gp.ui.showMessage("You opened the chest! You received " + coins + " coins");
-                        hasKey--;
+                        hasKeyR--;
                         gp.ui.gameFinished = true;
                     }
                     else {

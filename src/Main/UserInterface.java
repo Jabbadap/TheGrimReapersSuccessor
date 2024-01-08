@@ -3,9 +3,9 @@ package Main;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import objects.OBJ_Key;
-import objects.OBJ_KeyB;
 import objects.OBJ_KeyR;
+import objects.OBJ_KeyB;
+import objects.OBJ_KeyG;
 import objects.OBJ_KeyY;
 
 public class UserInterface {
@@ -29,10 +29,10 @@ public class UserInterface {
         arial_40 = new Font("Arial", Font.PLAIN, 40);
         arial_80B = new Font("Arial", Font.BOLD, 80);
 
-        OBJ_Key key = new OBJ_Key(gp);
+        OBJ_KeyR key = new OBJ_KeyR(gp);
         keyImage = key.image;
 
-        OBJ_KeyR keyR = new OBJ_KeyR(gp);
+        OBJ_KeyG keyR = new OBJ_KeyG(gp);
         keyImageR = keyR.image;
 
         OBJ_KeyB keyB = new OBJ_KeyB(gp);
@@ -64,10 +64,10 @@ public class UserInterface {
             gp.gameThread = null;
         }
         else {
-            if(gp.player.hasKey != 0) {
+            if(gp.player.hasKeyR != 0) {
                 g2.drawImage(keyImage, 20, 20, gp.tileSize, gp.tileSize, null);
             }
-            if(gp.player.hasKeyR != 0) {
+            if(gp.player.hasKeyG != 0) {
                 g2.drawImage(keyImageR, 20, 20, gp.tileSize, gp.tileSize, null);
             }
             if(gp.player.hasKeyB != 0) {
