@@ -127,7 +127,7 @@ public class UserInterface {
         // WINDOW
         int x = gp.tileSize/2;
         int y = gp.tileSize * 7 + gp.tileSize/2;
-        int width = gp.screenWidth - (gp.tileSize * 2);
+        int width = gp.screenWidth - gp.tileSize;
         int height = gp.tileSize*4;
         drawSubWindow(x, y, width, height);
 
