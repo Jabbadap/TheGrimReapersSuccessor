@@ -163,7 +163,7 @@ public class UserInterface {
             g2.drawString(">",x-gp.tileSize, y);
         }
 
-        text = "QUIT GAME";
+        text = "QUIT";
         x = getXCenterText(text);
         y += gp.tileSize;
         g2.drawString(text, x, y);
