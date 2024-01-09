@@ -64,7 +64,7 @@ public class NPC_GrimmReaper extends Entity {
                 To test my new successor I made this island, containing 3 dungeons to see if you are the 
                 right person!
                 So if you are intrested, I'd say give it a go!:)""";
-        dialogues[20] = "Here is the key for the first dungeon";
+        dialogues[20] = "Here is the key for the first dungeon!";
     }
 
     public void speak() {
