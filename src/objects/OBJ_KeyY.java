@@ -14,7 +14,6 @@ public class OBJ_KeyY extends SuperObject {
 
         this.gp = gp;
 
-        this.gp = gp;
         name = "KeyY";
         try {
             image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("objects/KeyY.png")));

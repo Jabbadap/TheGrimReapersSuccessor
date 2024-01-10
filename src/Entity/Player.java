@@ -21,7 +21,6 @@ public class Player extends Entity {
     public int hasKeyY = 0;
     public int hasKeyB = 0;
     public int hasKeyR = 0;
-    public int coins = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -59,6 +58,10 @@ public class Player extends Entity {
 
         speed = 4;
         direction = "Down";
+
+        // PLAYER STATUS
+        maxLife = 6;
+        life = maxLife;
     }
 
     public void getPlayerImage() {
@@ -178,8 +181,7 @@ public class Player extends Entity {
                 case "Chest":
                     if(hasKeyR > 0) {
                         gp.obj[index] = null;
-                        coins = 100;
-                        gp.ui.showMessage("You opened the chest! You received " + coins + " coins");
+                        gp.ui.showMessage("You opened the chest!");
                         hasKeyR--;
                         gp.ui.gameFinished = true;
                     }

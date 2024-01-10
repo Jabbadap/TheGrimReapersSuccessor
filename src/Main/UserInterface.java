@@ -3,10 +3,7 @@ package Main;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import objects.OBJ_KeyR;
-import objects.OBJ_KeyB;
-import objects.OBJ_KeyG;
-import objects.OBJ_KeyY;
+import objects.*;
 
 public class UserInterface {
 
@@ -17,6 +14,7 @@ public class UserInterface {
     BufferedImage keyImageR;
     BufferedImage keyImageB;
     BufferedImage keyImageY;
+    BufferedImage LifeFull, LifeHalf, LifeBlank;
     public boolean messageOn = false;
     public String message = "";
     int messageCounter = 0;
@@ -41,6 +39,12 @@ public class UserInterface {
 
         OBJ_KeyY keyY = new OBJ_KeyY(gp);
         keyImageY = keyY.image;
+
+        // CREATE HUD OBJECT
+        SuperObject life = new OBJ_Life(gp);
+        LifeFull = life.image;
+        LifeHalf = life.image2;
+        LifeBlank = life.image3;
     }
 
     public void showMessage(String text) {
@@ -105,23 +109,35 @@ public class UserInterface {
 
             // PLAY STATE
             if(gp.gameState == gp.playState) {
-                // Do playstate stuff later
+                drawPlayerLife();
             }
 
             // PAUSE STATE
             if(gp.gameState == gp.pauseState) {
+                drawPlayerLife();
                 drawPauseScreen();
             }
 
             // DIALOGUE STATE
             if(gp.gameState == gp.dialogueState) {
+                drawPlayerLife();
                 drawDialogueScreen();
             }
         }
     }
 
-    public void drawTitleScreen() {
+    public void drawPlayerLife() {
+        int x = gp.tileSize/2;
+        int y = gp.tileSize/2;
+        int i = 0;
+        while (i < gp.player.maxLife/2) {
+            g2.drawImage(LifeBlank, x, y, null);
+            i++;
+            x += gp.tileSize;
+        }
+    }
 
+    public void drawTitleScreen() {
         g2.setColor(new Color(0,0,0));
         g2.fillRect(0, 0, gp.screenWidth,gp.screenHeight);
 
