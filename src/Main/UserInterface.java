@@ -127,11 +127,29 @@ public class UserInterface {
     }
 
     public void drawPlayerLife() {
-        int x = gp.tileSize/2;
+        int x = gp.tileSize*12;
         int y = gp.tileSize/2;
         int i = 0;
+
+        // DRAW BLANK LIFE
         while (i < gp.player.maxLife/2) {
             g2.drawImage(LifeBlank, x, y, null);
+            i++;
+            x += gp.tileSize;
+        }
+
+        // RESET
+        x = gp.tileSize*12;
+        y = gp.tileSize/2;
+        i = 0;
+
+        // DRAW CURRENT LIFE
+        while (i < gp.player.life) {
+            g2.drawImage(LifeHalf, x, y, null);
+            i++;
+            if(i < gp.player.life) {
+                g2.drawImage(LifeFull, x, y, null);
+            }
             i++;
             x += gp.tileSize;
         }
