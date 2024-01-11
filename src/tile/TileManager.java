@@ -28,9 +28,9 @@ public class TileManager {
 
     public void getTileImage() {
         setup(0, "Stone", false);
-        setup(1, "Water", true);
-        setup(2, "Grass", false);
-        setup(3, "Wood", false);
+        setup(1, "Void", true);
+        setup(2, "Dirt", false);
+        setup(3, "Bridge", false);
         setup(4, "Wall", true);
     }
 
