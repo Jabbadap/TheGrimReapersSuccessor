@@ -10,8 +10,8 @@ public class UserInterface {
     GamePanel gp;
     Graphics2D g2;
     Font arial_40, arial_80B;
-    BufferedImage keyImage;
     BufferedImage keyImageR;
+    BufferedImage keyImageG;
     BufferedImage keyImageB;
     BufferedImage keyImageY;
     BufferedImage LifeFull, LifeHalf, LifeBlank;
@@ -29,10 +29,10 @@ public class UserInterface {
         arial_80B = new Font("Arial", Font.BOLD, 80);
 
         OBJ_KeyR key = new OBJ_KeyR(gp);
-        keyImage = key.image;
+        keyImageR = key.image;
 
         OBJ_KeyG keyR = new OBJ_KeyG(gp);
-        keyImageR = keyR.image;
+        keyImageG = keyR.image;
 
         OBJ_KeyB keyB = new OBJ_KeyB(gp);
         keyImageB = keyB.image;
@@ -70,16 +70,16 @@ public class UserInterface {
         }
         else {
             if(gp.player.hasKeyR != 0) {
-                g2.drawImage(keyImage, 20, 20, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(keyImageR, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null);
             }
             if(gp.player.hasKeyG != 0) {
-                g2.drawImage(keyImageR, 20, 20, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(keyImageG,gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null);
             }
             if(gp.player.hasKeyB != 0) {
-                g2.drawImage(keyImageB, 20, 20, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(keyImageB, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null);
             }
             if(gp.player.hasKeyY != 0) {
-                g2.drawImage(keyImageY, 20, 20, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(keyImageY, gp.tileSize/2, gp.tileSize/2, gp.tileSize, gp.tileSize, null);
             }
 
             g2.setFont(arial_40);
