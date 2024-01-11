@@ -12,12 +12,5 @@ public class OBJ_Chest extends Entity {
         name = "Chest";
         Down1 = setup("objects/ChestC");
         collision = true;
-
-        // solidArea.x = 0;
-        // solidArea.y = 16;
-        // solidArea.width = 48;
-        // solidArea.height = 32;
-        // solidAreaDefaultX = solidArea.x;
-        // solidAreaDefaultY = solidArea.y;
     }
 }

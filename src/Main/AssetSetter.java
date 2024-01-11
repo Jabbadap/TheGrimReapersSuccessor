@@ -3,6 +3,7 @@ package Main;
 import Entity.NPC_1;
 import Entity.NPC_2;
 import Entity.NPC_GrimmReaper;
+import Monster.MON_Spider;
 import objects.*;
 
 public class AssetSetter {
@@ -59,6 +60,12 @@ public class AssetSetter {
         gp.npc[3] = new NPC_2(gp);
         gp.npc[3].worldX = gp.tileSize * 54;
         gp.npc[3].worldY = gp.tileSize * 41;
+    }
+
+    public void setMonster() {
+        gp.monster[0] = new MON_Spider(gp);
+        gp.monster[0].worldX = gp.tileSize * 38;
+        gp.monster[0].worldY = gp.tileSize * 40;
     }
 }
 
