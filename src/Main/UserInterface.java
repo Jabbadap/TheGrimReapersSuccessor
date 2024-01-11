@@ -189,19 +189,11 @@ public class UserInterface {
             g2.drawString(">",x-gp.tileSize, y);
         }
 
-        text = "LOAD GAME";
-        x = getXCenterText(text);
-        y += gp.tileSize;
-        g2.drawString(text, x, y);
-        if(commandNum == 1) {
-            g2.drawString(">",x-gp.tileSize, y);
-        }
-
         text = "QUIT";
         x = getXCenterText(text);
         y += gp.tileSize;
         g2.drawString(text, x, y);
-        if(commandNum == 2) {
+        if(commandNum == 1) {
             g2.drawString(">",x-gp.tileSize, y);
         }
     }
