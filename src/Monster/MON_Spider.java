@@ -10,6 +10,7 @@ public class MON_Spider extends Entity {
     public MON_Spider(GamePanel gp) {
         super(gp);
 
+        type = 2;
         name = "Spider";
         speed = 1;
         maxLife = 2;

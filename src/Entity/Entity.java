@@ -26,11 +26,14 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
     public int actionLockCounter = 0;
+    public boolean invincible = false;
+    public int invincibleCounter = 0;
     String dialogues[] = new String[40];
     int dialogueIndex = 0;
     public BufferedImage image, image2, image3;
     public String name;
     public boolean collision = false;
+    public int type;
 
     // CHARACTER STATUS
     public int maxLife;
@@ -44,22 +47,20 @@ public class Entity {
 
     public void speak() {
         if(dialogues[dialogueIndex] == null) {
-            dialogueIndex = 0;
-        }
+            dialogueIndex = 0; }
+
         gp.ui.currentDialogue = dialogues[dialogueIndex];
         dialogueIndex++;
+
         if (dialogueIndex == 21) {
             gp.player.hasKeyG++;
-            gp.ui.showMessage("You got a key!");
-        }
+            gp.ui.showMessage("You got a key!"); }
 
         switch (gp.player.direction) {
             case "Up" -> direction = "Down";
             case "Down" -> direction = "Up";
             case "Left" -> direction = "Right";
-            case "Right" -> direction = "Left";
-        }
-    }
+            case "Right" -> direction = "Left"; } }
 
     public void update() {
         setAction();
@@ -68,7 +69,14 @@ public class Entity {
         gp.cChecker.checkObject(this, false);
         gp.cChecker.checkEntity(this, gp.npc);
         gp.cChecker.checkEntity(this, gp.monster);
-        gp.cChecker.checkPlayer(this);
+        boolean contactPlayer = gp.cChecker.checkPlayer(this);
+
+        if(this.type == 2 && contactPlayer) {
+            if(!gp.player.invincible) {
+                gp.player.life -= 1;
+                gp.player.invincible = true;
+            }
+        }
 
         // IF COLLISION IS FALSE, PLAYER CAN MOVE
         if(!collisionOn) {
@@ -76,21 +84,14 @@ public class Entity {
                 case "Up" -> worldY -= speed;
                 case "Down" -> worldY += speed;
                 case "Left" -> worldX -= speed;
-                case "Right" -> worldX += speed;
-            }
-        }
+                case "Right" -> worldX += speed; } }
 
         // Loop animatie
         spriteCounter++;
         if(spriteCounter > 12) {
-            if(spriteNumber == 1) {
-                spriteNumber = 2;
-            } else if(spriteNumber == 2) {
-                spriteNumber = 1;
-            }
-            spriteCounter = 0;
-        }
-    }
+            if(spriteNumber == 1) { spriteNumber = 2; }
+            else if(spriteNumber == 2) { spriteNumber = 1; }
+            spriteCounter = 0; } }
 
     public void draw(Graphics2D g2) {
 
@@ -105,41 +106,19 @@ public class Entity {
 
             switch (direction) {
                 case "Up" -> {
-                    if (spriteNumber == 1) {
-                        image = Up1;
-                    }
-                    if (spriteNumber == 2) {
-                        image = Up2;
-                    }
-                }
+                    if (spriteNumber == 1) { image = Up1; }
+                    if (spriteNumber == 2) { image = Up2; } }
                 case "Down" -> {
-                    if (spriteNumber == 1) {
-                        image = Down1;
-                    }
-                    if (spriteNumber == 2) {
-                        image = Down2;
-                    }
-                }
+                    if (spriteNumber == 1) { image = Down1; }
+                    if (spriteNumber == 2) { image = Down2; } }
                 case "Left" -> {
-                    if (spriteNumber == 1) {
-                        image = Left1;
-                    }
-                    if (spriteNumber == 2) {
-                        image = Left2;
-                    }
-                }
+                    if (spriteNumber == 1) { image = Left1; }
+                    if (spriteNumber == 2) { image = Left2; } }
                 case "Right" -> {
-                    if (spriteNumber == 1) {
-                        image = Right1;
-                    }
-                    if (spriteNumber == 2) {
-                        image = Right2;
-                    }
-                }
-            }
-            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-        }
-    }
+                    if (spriteNumber == 1) { image = Right1; }
+                    if (spriteNumber == 2) { image = Right2; } } }
+
+            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null); } }
 
     public BufferedImage setup(String imagePath) {
         // Reading the images
@@ -148,11 +127,9 @@ public class Entity {
 
         try {
             image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(imagePath + ".png")));
-            image = uTool.scaleImage(image, gp.tileSize, gp.tileSize);
+            image = uTool.scaleImage(image, gp.tileSize, gp.tileSize); }
+        catch(IOException e) {
+            e.printStackTrace(); }
 
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-        return image;
-    }
+        return image; }
 }
