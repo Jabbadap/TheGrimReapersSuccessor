@@ -3,6 +3,7 @@ package Main;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+import Entity.Entity;
 import objects.*;
 
 public class UserInterface {
@@ -28,20 +29,20 @@ public class UserInterface {
         arial_40 = new Font("Arial", Font.PLAIN, 40);
         arial_80B = new Font("Arial", Font.BOLD, 80);
 
-        OBJ_KeyR key = new OBJ_KeyR(gp);
-        keyImageR = key.image;
+        OBJ_KeyR keyR = new OBJ_KeyR(gp);
+        keyImageR = keyR.Down1;
 
-        OBJ_KeyG keyR = new OBJ_KeyG(gp);
-        keyImageG = keyR.image;
+        OBJ_KeyG keyG = new OBJ_KeyG(gp);
+        keyImageG = keyG.Down1;
 
         OBJ_KeyB keyB = new OBJ_KeyB(gp);
-        keyImageB = keyB.image;
+        keyImageB = keyB.Down1;
 
         OBJ_KeyY keyY = new OBJ_KeyY(gp);
-        keyImageY = keyY.image;
+        keyImageY = keyY.Down1;
 
         // CREATE HUD OBJECT
-        SuperObject life = new OBJ_Life(gp);
+        Entity life = new OBJ_Life(gp);
         LifeFull = life.image;
         LifeHalf = life.image2;
         LifeBlank = life.image3;

@@ -2,11 +2,13 @@ package Main;
 
 import Entity.Entity;
 import Entity.Player;
-import objects.SuperObject;
 import tile.TileManager;
 
 import javax.swing.JPanel;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -40,8 +42,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     // ENTITY AND OBJECT
     public Player player = new Player(this,keyH);
-    public SuperObject obj[] = new SuperObject[10];
+    public Entity obj[] = new Entity[10];
     public Entity npc[] = new Entity[10];
+    ArrayList<Entity> entityList = new ArrayList<>();
 
     // GAME STATE
     public int gameState;
@@ -134,22 +137,42 @@ public class GamePanel extends JPanel implements Runnable{
             // TILE
             tileM.draw(g2);
 
-            // OBJECT
+            // ADD ENTITIES TO THE LIST
+            entityList.add(player);
+            for(int i =0; i < npc.length;i++) {
+                if(npc[i] != null) {
+                    entityList.add(npc[i]);
+                }
+            }
+
             for(int i = 0; i < obj.length; i++) {
                 if(obj[i] != null) {
-                    obj[i].draw(g2, this);
+                    entityList.add(obj[i]);
                 }
             }
 
-            // NPC
-            for(int i = 0; i < npc.length;i++) {
-                if(npc[i] != null) {
-                    npc[i].draw(g2);
+            // SORT
+            Collections.sort(entityList, new Comparator<Entity>() {
+
+                @Override
+                public int compare(Entity e1, Entity e2) {
+
+                    int result = Integer.compare(e1.worldY, e2.worldY);
+                    return result;
                 }
+            });
+
+            // DRAW ENTITIES
+            for(int i = 0; i < entityList.size();i++) {
+                entityList.get(i).draw(g2);
             }
+
+            // EMPTY ENTITY LIST
+            entityList.clear();
+
 
             // PLAYER
-            player.draw(g2);
+            // player.draw(g2);
 
             // UI
             ui.draw(g2);
