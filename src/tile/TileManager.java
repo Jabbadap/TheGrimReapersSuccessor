@@ -19,11 +19,11 @@ public class TileManager {
 
     public TileManager(GamePanel gp) {
         this.gp = gp;
-        tile = new Tile[10];
+        tile = new Tile[20];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("maps/Map6");
+        loadMap("maps/Map7");
     }
 
     public void getTileImage() {
@@ -31,7 +31,14 @@ public class TileManager {
         setup(1, "Void", true);
         setup(2, "Dirt", false);
         setup(3, "Bridge", false);
-        setup(4, "Wall", true);
+        setup(4, "WallG", true);
+        setup(5, "WallR", true);
+        setup(6, "BridgeMV", false);
+        setup(7, "BridgeMH", false);
+        setup(8, "BridgeEMB", false);
+        setup(9, "BridgeEMO", false);
+        setup(10, "BridgeEML", false);
+        setup(11, "BridgeEMR", false);
     }
 
     public void setup(int index, String imageName, boolean collision) {
