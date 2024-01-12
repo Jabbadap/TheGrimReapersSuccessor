@@ -18,6 +18,7 @@ public class Entity {
             AttackL1, AttackL2, AttackR1, AttackR2;
     public BufferedImage image, image2, image3;
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
+    public Rectangle attackArea = new Rectangle(0, 0, 0, 0);
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collision = false;
     String dialogues[] = new String[40];
@@ -29,6 +30,7 @@ public class Entity {
     int dialogueIndex = 0;
     public boolean collisionOn = false;
     public boolean invincible = false;
+    boolean attacking = false;
 
     // COUNTER
     public int spriteCounter = 0;
@@ -94,7 +96,16 @@ public class Entity {
         if(spriteCounter > 12) {
             if(spriteNumber == 1) { spriteNumber = 2; }
             else if(spriteNumber == 2) { spriteNumber = 1; }
-            spriteCounter = 0; } }
+            spriteCounter = 0;
+        }
+        if(invincible) {
+            invincibleCounter++;
+            if(invincibleCounter > 40) {
+                invincible = false;
+                invincibleCounter = 0;
+            }
+        }
+    }
 
     public void draw(Graphics2D g2) {
 
@@ -119,9 +130,17 @@ public class Entity {
                     if (spriteNumber == 2) { image = Left2; } }
                 case "Right" -> {
                     if (spriteNumber == 1) { image = Right1; }
-                    if (spriteNumber == 2) { image = Right2; } } }
+                    if (spriteNumber == 2) { image = Right2; } }
+            }
 
-            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null); } }
+            if(invincible) {
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
+            }
+
+            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        }
+    }
 
     public BufferedImage setup(String imagePath, int width, int height) {
         // Reading the images
