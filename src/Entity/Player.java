@@ -75,7 +75,8 @@ public class Player extends Entity {
 
     public void update() {
         // Getting the right image for the right direction
-        if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
+        if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed || keyH.enterPressed) {
+
             if(keyH.upPressed) { direction = "Up"; }
             else if(keyH.downPressed) { direction = "Down"; }
             else if(keyH.leftPressed) { direction = "Left"; }
@@ -99,15 +100,16 @@ public class Player extends Entity {
 
             // CHECK EVENT
             gp.eHandler.checkEvent();
-            gp.keyH.enterPressed = false;
 
             // IF COLLISION IS FALSE, PLAYER CAN MOVE
-            if(!collisionOn) {
+            if(!collisionOn && !keyH.enterPressed) {
                 switch (direction) {
                     case "Up" -> worldY -= speed;
                     case "Down" -> worldY += speed;
                     case "Left" -> worldX -= speed;
                     case "Right" -> worldX += speed; } }
+
+            gp.keyH.enterPressed = false;
 
             // Loop animatie
             spriteCounter++;
