@@ -13,29 +13,32 @@ public class Entity {
 
     GamePanel gp;
 
-    // Set default variables
-    public int worldX, worldY;
-    public int speed;
     public BufferedImage Up1, Up2, Down1, Down2, Left1, Left2, Right1, Right2;
-    public String direction = "Down";
-
-    // Standard variables
-    public int spriteCounter = 0;
-    public int spriteNumber = 1;
+    public BufferedImage AttackU1, AttackU2, AttackD1, AttackD2,
+            AttackL1, AttackL2, AttackR1, AttackR2;
+    public BufferedImage image, image2, image3;
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public int solidAreaDefaultX, solidAreaDefaultY;
-    public boolean collisionOn = false;
-    public int actionLockCounter = 0;
-    public boolean invincible = false;
-    public int invincibleCounter = 0;
-    String dialogues[] = new String[40];
-    int dialogueIndex = 0;
-    public BufferedImage image, image2, image3;
-    public String name;
     public boolean collision = false;
-    public int type;
+    String dialogues[] = new String[40];
 
-    // CHARACTER STATUS
+    // STATE
+    public int worldX, worldY;
+    public String direction = "Down";
+    public int spriteNumber = 1;
+    int dialogueIndex = 0;
+    public boolean collisionOn = false;
+    public boolean invincible = false;
+
+    // COUNTER
+    public int spriteCounter = 0;
+    public int actionLockCounter = 0;
+    public int invincibleCounter = 0;
+
+    // CHARACTER ATTRIBUTES
+    public String name;
+    public int type;
+    public int speed;
     public int maxLife;
     public int life;
 
@@ -120,14 +123,14 @@ public class Entity {
 
             g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null); } }
 
-    public BufferedImage setup(String imagePath) {
+    public BufferedImage setup(String imagePath, int width, int height) {
         // Reading the images
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;
 
         try {
             image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(imagePath + ".png")));
-            image = uTool.scaleImage(image, gp.tileSize, gp.tileSize); }
+            image = uTool.scaleImage(image, width, height); }
         catch(IOException e) {
             e.printStackTrace(); }
 

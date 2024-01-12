@@ -7,8 +7,12 @@ import java.util.Random;
 
 public class MON_Spider extends Entity {
 
+    GamePanel gp;
+
     public MON_Spider(GamePanel gp) {
         super(gp);
+
+        this.gp = gp;
 
         type = 2;
         name = "Spider";
@@ -27,14 +31,14 @@ public class MON_Spider extends Entity {
     }
 
     public void getImage() {
-        Up1 = setup("monster/Spider1");
-        Up2 = setup("monster/Spider2");
-        Down1 = setup("monster/Spider1");
-        Down2 = setup("monster/Spider2");
-        Left1 = setup("monster/Spider1");
-        Left2 = setup("monster/Spider2");
-        Right1 = setup("monster/Spider1");
-        Right2 = setup("monster/Spider2");
+        Up1 = setup("monster/Spider1", gp.tileSize, gp.tileSize);
+        Up2 = setup("monster/Spider2", gp.tileSize, gp.tileSize);
+        Down1 = setup("monster/Spider1", gp.tileSize, gp.tileSize);
+        Down2 = setup("monster/Spider2", gp.tileSize, gp.tileSize);
+        Left1 = setup("monster/Spider1", gp.tileSize, gp.tileSize);
+        Left2 = setup("monster/Spider2", gp.tileSize, gp.tileSize);
+        Right1 = setup("monster/Spider1", gp.tileSize, gp.tileSize);
+        Right2 = setup("monster/Spider2", gp.tileSize, gp.tileSize);
     }
 
     public void setAction() {

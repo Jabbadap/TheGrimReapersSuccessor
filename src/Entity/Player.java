@@ -64,14 +64,25 @@ public class Player extends Entity {
 
     public void getPlayerImage() {
         // Getting the right image for the right movement
-        Up1 = setup("player/Up1");
-        Up2 = setup("player/Up2");
-        Down1 = setup("player/Down1");
-        Down2 = setup("player/Down2");
-        Left1 = setup("player/Left1");
-        Left2 = setup("player/Left2");
-        Right1 = setup("player/Right1");
-        Right2 = setup("player/Right2"); }
+        Up1 = setup("player/Up1", gp.tileSize, gp.tileSize);
+        Up2 = setup("player/Up2", gp.tileSize, gp.tileSize);
+        Down1 = setup("player/Down1", gp.tileSize, gp.tileSize);
+        Down2 = setup("player/Down2", gp.tileSize, gp.tileSize);
+        Left1 = setup("player/Left1", gp.tileSize, gp.tileSize);
+        Left2 = setup("player/Left2", gp.tileSize, gp.tileSize);
+        Right1 = setup("player/Right1", gp.tileSize, gp.tileSize);
+        Right2 = setup("player/Right2", gp.tileSize, gp.tileSize); }
+
+    public void getPlayerAttackImage() {
+        // Getting the right image for the right movement
+        AttackU1 = setup("player/AttackU1", gp.tileSize, gp.tileSize*2);
+        AttackU2 = setup("player/AttackU2", gp.tileSize, gp.tileSize*2);
+        AttackD1 = setup("player/AttackD1", gp.tileSize, gp.tileSize*2);
+        AttackD2 = setup("player/AttackD2", gp.tileSize, gp.tileSize*2);
+        AttackL1 = setup("player/AttackL1", gp.tileSize*2, gp.tileSize);
+        AttackL2 = setup("player/AttackL2", gp.tileSize*2, gp.tileSize);
+        AttackR1 = setup("player/AttackR1", gp.tileSize*2, gp.tileSize);
+        AttackR2 = setup("player/AttackR2", gp.tileSize*2, gp.tileSize); }
 
     public void update() {
         // Getting the right image for the right direction

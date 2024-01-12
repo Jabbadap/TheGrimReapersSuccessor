@@ -9,8 +9,8 @@ public class OBJ_Life extends Entity {
         super(gp);
 
         name = "Life";
-        image = setup("objects/LifeFull");
-        image2 = setup("objects/LifeHalf");
-        image3 = setup("objects/LifeBlank");
+        image = setup("objects/LifeFull", gp.tileSize, gp.tileSize);
+        image2 = setup("objects/LifeHalf", gp.tileSize, gp.tileSize);
+        image3 = setup("objects/LifeBlank", gp.tileSize, gp.tileSize);
     }
 }

@@ -9,6 +9,6 @@ public class OBJ_KeyR extends Entity {
         super(gp);
 
         name = "KeyR";
-        Down1 = setup("objects/KeyR");
+        Down1 = setup("objects/KeyR", gp.tileSize, gp.tileSize);
     }
 }

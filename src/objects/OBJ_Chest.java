@@ -10,7 +10,7 @@ public class OBJ_Chest extends Entity {
         super(gp);
 
         name = "Chest";
-        Down1 = setup("objects/ChestC");
+        Down1 = setup("objects/ChestC", gp.tileSize, gp.tileSize);
         collision = true;
     }
 }
