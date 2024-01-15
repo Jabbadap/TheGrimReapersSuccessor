@@ -17,7 +17,7 @@ public class MON_Spider extends Entity {
         type = 2;
         name = "Spider";
         speed = 1;
-        maxLife = 2;
+        maxLife = 4;
         life = maxLife;
 
         solidArea.x = 0;
@@ -60,5 +60,10 @@ public class MON_Spider extends Entity {
             }
             actionLockCounter = 0;
         }
+    }
+
+    public void damageReaction() {
+        actionLockCounter = 0;
+        direction = gp.player.direction;
     }
 }
