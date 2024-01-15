@@ -2,6 +2,7 @@ package Main;
 
 import Entity.NPC_1;
 import Entity.NPC_2;
+import Entity.NPC_3;
 import Entity.NPC_GrimmReaper;
 import Monster.MON_Spider;
 import objects.*;
@@ -40,8 +41,8 @@ public class AssetSetter {
         gp.obj[6].worldY = 54 * gp.tileSize;
 
         gp.obj[7] = new OBJ_KeyG(gp);
-        gp.obj[7].worldX = 15 * gp.tileSize;
-        gp.obj[7].worldY = 41 * gp.tileSize;
+        gp.obj[7].worldX = 22 * gp.tileSize;
+        gp.obj[7].worldY = 53 * gp.tileSize;
     }
 
     public void setNPC() {
@@ -49,23 +50,23 @@ public class AssetSetter {
         gp.npc[0].worldX = gp.tileSize * 38;
         gp.npc[0].worldY = gp.tileSize * 36;
 
-        gp.npc[1] = new NPC_1(gp);
+        gp.npc[2] = new NPC_1(gp);
+        gp.npc[2].worldX = gp.tileSize * 10;
+        gp.npc[2].worldY = gp.tileSize * 50;
+
+        gp.npc[1] = new NPC_2(gp);
         gp.npc[1].worldX = gp.tileSize * 38;
         gp.npc[1].worldY = gp.tileSize * 21;
 
-        gp.npc[2] = new NPC_2(gp);
-        gp.npc[2].worldX = gp.tileSize * 17;
-        gp.npc[2].worldY = gp.tileSize * 41;
-
-        gp.npc[3] = new NPC_2(gp);
+        gp.npc[3] = new NPC_3(gp);
         gp.npc[3].worldX = gp.tileSize * 54;
         gp.npc[3].worldY = gp.tileSize * 41;
     }
 
     public void setMonster() {
         gp.monster[0] = new MON_Spider(gp);
-        gp.monster[0].worldX = gp.tileSize * 38;
-        gp.monster[0].worldY = gp.tileSize * 40;
+        gp.monster[0].worldX = gp.tileSize * 20;
+        gp.monster[0].worldY = gp.tileSize * 50;
     }
 }
 

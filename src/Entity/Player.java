@@ -233,7 +233,7 @@ public class Player extends Entity {
                     gp.ui.showMessage("You got a key!");
                     break;
                 case "KeyG":
-                    hasKeyB++;
+                    hasKeyG++;
                     gp.obj[index] = null;
                     gp.ui.showMessage("You got a key!");
                     break;

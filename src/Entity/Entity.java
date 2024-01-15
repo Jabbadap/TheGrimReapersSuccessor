@@ -28,6 +28,7 @@ public class Entity {
     public String direction = "Down";
     public int spriteNumber = 1;
     int dialogueIndex = 0;
+    public boolean dialogueFinished = false;
     public boolean collisionOn = false;
     public boolean invincible = false;
     boolean attacking = false;
@@ -57,16 +58,16 @@ public class Entity {
 
     public void damageReaction() {}
 
+    public void dialogueAction() {}
+
     public void speak() {
         if(dialogues[dialogueIndex] == null) {
-            dialogueIndex = 0; }
+            dialogueIndex = 0;
+        }
 
+        dialogueAction();
         gp.ui.currentDialogue = dialogues[dialogueIndex];
         dialogueIndex++;
-
-        if (dialogueIndex == 21) {
-            gp.player.hasKeyB++;
-            gp.ui.showMessage("You got a key!"); }
 
         switch (gp.player.direction) {
             case "Up" -> direction = "Down";

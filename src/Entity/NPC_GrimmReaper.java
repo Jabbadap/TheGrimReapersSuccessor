@@ -2,6 +2,7 @@ package Entity;
 
 import Main.GamePanel;
 
+import java.nio.file.FileAlreadyExistsException;
 import java.util.Random;
 
 public class NPC_GrimmReaper extends Entity {
@@ -65,6 +66,14 @@ public class NPC_GrimmReaper extends Entity {
                 right person!
                 So if you are intrested, I'd say give it a go!:)""";
         dialogues[20] = "Here is the key for the first dungeon!";
+    }
+
+    public void dialogueAction() {
+        if (dialogueIndex == 20 && !dialogueFinished) {
+            gp.player.hasKeyB++;
+            gp.ui.showMessage("You got a key!");
+            dialogueFinished = true;
+        }
     }
 
     public void speak() {

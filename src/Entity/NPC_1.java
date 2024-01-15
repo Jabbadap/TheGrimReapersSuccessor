@@ -13,6 +13,7 @@ public class NPC_1 extends Entity {
         speed = 1;
 
         getImage();
+
         setDialogue();
     }
 
@@ -29,8 +30,22 @@ public class NPC_1 extends Entity {
     }
 
     public void setDialogue() {
-        dialogues[0] = "Hello, my name is...";
-        dialogues[1] = "And who are you?";
+        dialogues[0] = "Hi, I am Tommy!";
+        dialogues[1] = "I lost my Teddybear :(\nCan you find him for me?\n" +
+                "If you see my friend Bobby please don't hurt him." +
+                "\nHe looks a bit scary but he is really nice!\n(If you don't hurt him)";
+    }
+
+    @Override
+    public void dialogueAction() {
+        if(gp.player.hasKeyG == 1 && gp.monster[0] != null) {
+            dialogues[0] = "Thank you so much for finding my teddybear and not hurting my friend!!";
+            dialogues[1] = "Here is the key for the next dungeon";
+        }
+        if(gp.player.hasKeyG == 1 && gp.monster[0] == null) {
+            dialogues[0] = "You hurt my friend...\nHow COULD you?";
+            dialogues[1] = "You are not getting the key for the next dungeon!!";
+        }
     }
 
     public void setAction() {
