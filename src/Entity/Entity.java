@@ -65,7 +65,7 @@ public class Entity {
         dialogueIndex++;
 
         if (dialogueIndex == 21) {
-            gp.player.hasKeyG++;
+            gp.player.hasKeyB++;
             gp.ui.showMessage("You got a key!"); }
 
         switch (gp.player.direction) {

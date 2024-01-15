@@ -18,14 +18,14 @@ public class NPC_1 extends Entity {
 
     public void getImage() {
         // Getting the right image for the right movement
-        Up1 = setup("NPC/GrimmU", gp.tileSize, gp.tileSize);
-        Up2 = setup("NPC/GrimmU", gp.tileSize, gp.tileSize);
-        Down1 = setup("NPC/GrimmD", gp.tileSize, gp.tileSize);
-        Down2 = setup("NPC/GrimmD", gp.tileSize, gp.tileSize);
-        Left1 = setup("NPC/GrimmL", gp.tileSize, gp.tileSize);
-        Left2 = setup("NPC/GrimmL", gp.tileSize, gp.tileSize);
-        Right1 = setup("NPC/GrimmR", gp.tileSize, gp.tileSize);
-        Right2 = setup("NPC/GrimmR", gp.tileSize, gp.tileSize);
+        Up1 = setup("NPC/NPC1WU1", gp.tileSize, gp.tileSize);
+        Up2 = setup("NPC/NPC1WU2", gp.tileSize, gp.tileSize);
+        Down1 = setup("NPC/NPC1WD1", gp.tileSize, gp.tileSize);
+        Down2 = setup("NPC/NPC1WD2", gp.tileSize, gp.tileSize);
+        Left1 = setup("NPC/NPC1WL1", gp.tileSize, gp.tileSize);
+        Left2 = setup("NPC/NPC1WL2", gp.tileSize, gp.tileSize);
+        Right1 = setup("NPC/NPC1WR1", gp.tileSize, gp.tileSize);
+        Right2 = setup("NPC/NPC1WR2", gp.tileSize, gp.tileSize);
     }
 
     public void setDialogue() {

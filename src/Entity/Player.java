@@ -232,7 +232,7 @@ public class Player extends Entity {
                     gp.obj[index] = null;
                     gp.ui.showMessage("You got a key!");
                     break;
-                case "KeyB":
+                case "KeyG":
                     hasKeyB++;
                     gp.obj[index] = null;
                     gp.ui.showMessage("You got a key!");
@@ -258,10 +258,10 @@ public class Player extends Entity {
                         hasKeyB--; }
                     else { gp.ui.showMessage("You need a key!"); }
                     break;
-                case "Chest":
+                case "DoorR":
                     if(hasKeyR > 0) {
                         gp.obj[index] = null;
-                        gp.ui.showMessage("You opened the chest!");
+                        gp.ui.showMessage("You opened the final door!");
                         hasKeyR--;
                         gp.ui.gameFinished = true; }
                     else { gp.ui.showMessage("You need a key!"); }
