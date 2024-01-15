@@ -21,6 +21,7 @@ public class Player extends Entity {
     public int hasKeyY = 0;
     public int hasKeyB = 0;
     public int hasKeyR = 0;
+    public int hasTeddybear = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -86,6 +87,7 @@ public class Player extends Entity {
         hasKeyY = 0;
         hasKeyB = 0;
         hasKeyR = 0;
+        hasTeddybear = 0;
     }
 
     public void getPlayerImage() {
@@ -232,10 +234,10 @@ public class Player extends Entity {
                     gp.obj[index] = null;
                     gp.ui.showMessage("You got a key!");
                     break;
-                case "KeyG":
-                    hasKeyG++;
+                case "Teddybear":
+                    hasTeddybear++;
                     gp.obj[index] = null;
-                    gp.ui.showMessage("You got a key!");
+                    gp.ui.showMessage("You got the Teddybear!");
                     break;
                 case "DoorG":
                     if(hasKeyG > 0) {

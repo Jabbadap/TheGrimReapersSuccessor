@@ -2,9 +2,6 @@ package Entity;
 
 import Main.GamePanel;
 
-import java.nio.file.FileAlreadyExistsException;
-import java.util.Random;
-
 public class NPC_GrimmReaper extends Entity {
 
     public NPC_GrimmReaper(GamePanel gp) {
@@ -48,7 +45,7 @@ public class NPC_GrimmReaper extends Entity {
                 Wait no, that's not what I meant...
                 What I am trying to say is that it's not as bad as it sounds like.
                 You also have some lovely people waiting for you! <3""";
-        dialogues[12] = "But that's not the reason we came to this island specifically...";
+        dialogues[12] = "But that's not the reason we came to this place specifically...";
         dialogues[13] = """
                 The thing is, I have been doing this for a very, very, very long time and have gotten really tired.
                 I haven't even been able to attend my knitting club in centuries!
@@ -62,9 +59,9 @@ public class NPC_GrimmReaper extends Entity {
         dialogues[18] = "But I want it to be someone who is loving and caring, some characteristics I think you might\n" +
                 "posses:)";
         dialogues[19] = """
-                To test my new successor I made this island, containing 3 dungeons to see if you are the 
+                To test my new successor I made this place, containing 3 dungeons to see if you are the 
                 right person!
-                So if you are intrested, I'd say give it a go!:)""";
+                So if you are interested, I'd say give it a go!:)""";
         dialogues[20] = "Here is the key for the first dungeon!";
     }
 

@@ -43,6 +43,10 @@ public class AssetSetter {
         gp.obj[7] = new OBJ_KeyG(gp);
         gp.obj[7].worldX = 22 * gp.tileSize;
         gp.obj[7].worldY = 53 * gp.tileSize;
+
+        gp.obj[7] = new OBJ_TeddyBear(gp);
+        gp.obj[7].worldX = 22 * gp.tileSize;
+        gp.obj[7].worldY = 53 * gp.tileSize;
     }
 
     public void setNPC() {
@@ -51,8 +55,8 @@ public class AssetSetter {
         gp.npc[0].worldY = gp.tileSize * 36;
 
         gp.npc[2] = new NPC_1(gp);
-        gp.npc[2].worldX = gp.tileSize * 10;
-        gp.npc[2].worldY = gp.tileSize * 50;
+        gp.npc[2].worldX = gp.tileSize * 16;
+        gp.npc[2].worldY = gp.tileSize * 41;
 
         gp.npc[1] = new NPC_2(gp);
         gp.npc[1].worldX = gp.tileSize * 38;

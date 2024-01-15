@@ -10,7 +10,6 @@ public class NPC_1 extends Entity {
         super(gp);
 
         direction = "Down";
-        speed = 1;
 
         getImage();
 
@@ -19,14 +18,14 @@ public class NPC_1 extends Entity {
 
     public void getImage() {
         // Getting the right image for the right movement
-        Up1 = setup("NPC/NPC1WU1", gp.tileSize, gp.tileSize);
-        Up2 = setup("NPC/NPC1WU2", gp.tileSize, gp.tileSize);
-        Down1 = setup("NPC/NPC1WD1", gp.tileSize, gp.tileSize);
-        Down2 = setup("NPC/NPC1WD2", gp.tileSize, gp.tileSize);
-        Left1 = setup("NPC/NPC1WL1", gp.tileSize, gp.tileSize);
-        Left2 = setup("NPC/NPC1WL2", gp.tileSize, gp.tileSize);
-        Right1 = setup("NPC/NPC1WR1", gp.tileSize, gp.tileSize);
-        Right2 = setup("NPC/NPC1WR2", gp.tileSize, gp.tileSize);
+        Up1 = setup("NPC/NPC1U", gp.tileSize, gp.tileSize);
+        Up2 = setup("NPC/NPC1U", gp.tileSize, gp.tileSize);
+        Down1 = setup("NPC/NPC1D", gp.tileSize, gp.tileSize);
+        Down2 = setup("NPC/NPC1D", gp.tileSize, gp.tileSize);
+        Left1 = setup("NPC/NPC1L", gp.tileSize, gp.tileSize);
+        Left2 = setup("NPC/NPC1L", gp.tileSize, gp.tileSize);
+        Right1 = setup("NPC/NPC1R", gp.tileSize, gp.tileSize);
+        Right2 = setup("NPC/NPC1R", gp.tileSize, gp.tileSize);
     }
 
     public void setDialogue() {
@@ -38,34 +37,20 @@ public class NPC_1 extends Entity {
 
     @Override
     public void dialogueAction() {
-        if(gp.player.hasKeyG == 1 && gp.monster[0] != null) {
-            dialogues[0] = "Thank you so much for finding my teddybear and not hurting my friend!!";
-            dialogues[1] = "Here is the key for the next dungeon";
-        }
-        if(gp.player.hasKeyG == 1 && gp.monster[0] == null) {
-            dialogues[0] = "You hurt my friend...\nHow COULD you?";
-            dialogues[1] = "You are not getting the key for the next dungeon!!";
-        }
-    }
-
-    public void setAction() {
-        actionLockCounter++;
-        if(actionLockCounter == 120) {
-            Random random = new Random();
-            int i = random.nextInt(100)+1;
-            if(i <= 25) {
-                direction = "Up";
+        if(gp.player.hasTeddybear == 1) {
+            if(gp.monster[0] != null) {
+                dialogues[0] = "Thank you so much for finding my teddybear and not hurting my friend!!";
+                dialogues[1] = ":)";
             }
-            if(i > 25 && i <= 50) {
-                direction = "Down";
+            if(gp.monster[0] == null) {
+                dialogues[0] = "You hurt my friend...\nHow COULD you?";
+                dialogues[1] = ":(";
             }
-            if(i > 50 && i <= 75) {
-                direction = "Left";
+            if(gp.player.hasKeyG == 0) {
+                gp.player.hasKeyG++;
+                gp.ui.showMessage("You got a key!");
+                dialogueFinished = true;
             }
-            if(i > 75) {
-                direction = "Right";
-            }
-            actionLockCounter = 0;
         }
     }
 

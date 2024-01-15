@@ -39,7 +39,7 @@ public class TileManager {
         setup(9, "BridgeEMO", false);
         setup(10, "BridgeEML", false);
         setup(11, "BridgeEMR", false);
-        setup(12, "Carpet", false);
+        setup(12, "FloorWood", false);
         setup(13, "Cushion", true);
         setup(14, "Furniture1", true);
         setup(15, "Furniture2", true);

@@ -59,7 +59,7 @@ public class UserInterface {
 
             g2.setFont(arial_40);
             g2.setColor(Color.white);
-            g2.drawString("You found the treasure!", getXCenterText("You found the treasure!"),
+            g2.drawString("You finished the dungeon!", getXCenterText("You finished the dungeon!"),
                     gp.screenHeight/2 - (gp.tileSize * 3));
 
             g2.setFont(arial_80B);
