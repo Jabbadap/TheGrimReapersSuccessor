@@ -1,5 +1,7 @@
 package Main;
 
+import Entity.Player;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -93,6 +95,33 @@ public class KeyHandler implements KeyListener {
         else if(gp.gameState == gp.dialogueState) {
             if(code == KeyEvent.VK_ENTER) {
                 gp.gameState = gp.playState;
+            }
+        }
+
+        // GAME OVER STATE
+        else if(gp.gameState == gp.gameOverState) {
+            if(code == KeyEvent.VK_W) {
+                gp.ui.commandNum--;
+                if(gp.ui.commandNum < 0) {
+                    gp.ui.commandNum = 1;
+                }
+            }
+            if(code == KeyEvent.VK_S) {
+                gp.ui.commandNum++;
+                if(gp.ui.commandNum > 1) {
+                    gp.ui.commandNum = 0;
+                }
+            }
+            if(code == KeyEvent.VK_ENTER) {
+                if(gp.ui.commandNum == 0) {
+                    gp.gameState = gp.playState;
+                    gp.retry();
+                }
+
+                if(gp.ui.commandNum == 1) {
+                    gp.gameState = gp.titleState;
+                    gp.restart();
+                }
             }
         }
     }

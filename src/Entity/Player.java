@@ -65,7 +65,28 @@ public class Player extends Entity {
 
         // PLAYER STATUS
         maxLife = 6;
-        life = maxLife; }
+        life = maxLife;
+    }
+
+    public void setDefaultPositions() {
+        worldX = gp.tileSize * 38;
+        worldY = gp.tileSize * 50;
+        direction = "Down";
+    }
+
+    public void restoreLifeAndMana() {
+        life = maxLife;
+        // mana = maxMana;
+        invincible = false;
+    }
+
+    // Later video 37 terugkijken voor inventory clear
+    public void resetItems() {
+        hasKeyG = 0;
+        hasKeyY = 0;
+        hasKeyB = 0;
+        hasKeyR = 0;
+    }
 
     public void getPlayerImage() {
         // Getting the right image for the right movement
@@ -142,7 +163,13 @@ public class Player extends Entity {
             invincibleCounter++;
             if(invincibleCounter > 60) {
                 invincible = false;
-                invincibleCounter = 0; } } }
+                invincibleCounter = 0; } }
+
+        if(life <= 0) {
+            gp.gameState = gp.gameOverState;
+        }
+
+    }
 
     public void playerAttacking() {
         spriteCounter++;
