@@ -2,6 +2,8 @@ package Entity;
 
 import Main.GamePanel;
 
+import java.util.Arrays;
+
 public class NPC_GrimmReaper extends Entity {
 
     public NPC_GrimmReaper(GamePanel gp) {
@@ -45,7 +47,9 @@ public class NPC_GrimmReaper extends Entity {
                 Wait no, that's not what I meant...
                 What I am trying to say is that it's not as bad as it sounds like.
                 You also have some lovely people waiting for you! <3""";
-        dialogues[12] = "But that's not the reason we came to this place specifically...";
+        dialogues[12] = "But that's not the reason we came to this place specifically..." +
+                "\n So, as you might have figured by now (or not), I am the Grimm Reaper, " +
+                "but please just call me Grimm!";
         dialogues[13] = """
                 The thing is, I have been doing this for a very, very, very long time and have gotten really tired.
                 I haven't even been able to attend my knitting club in centuries!
@@ -70,6 +74,30 @@ public class NPC_GrimmReaper extends Entity {
             gp.player.hasKeyB++;
             gp.ui.showMessage("You got a key!");
             dialogueFinished = true;
+        }
+        if (dialogueFinished) {
+            dialogueIndex = 0;
+            System.out.println(gp.player.karma);
+            if(gp.player.hasTeddybear == 0) {
+                dialogues[0] = "Go to the first dungeon, I am sure you can do it!";
+            }
+            if(gp.player.hasTeddybear == 1) {
+                if(gp.player.karma < 0) {
+                    dialogues[0] = "...I clearly misjudged you...";
+                }
+                if(gp.player.karma > 0) {
+                    dialogues[0] = "I knew you could do it!";
+                }
+                if(gp.player.karma == 0) {
+                    if(gp.monster[0] != null) {
+                        dialogues[0] = "So, you got the teddybear but didn't give it to the kid?!";
+                    }
+                    if(gp.monster[0] == null) {
+                        dialogues[0] = "So, you got the teddybear but didn't give it to the kid?!" +
+                                "\nAND killed his friend???";
+                    }
+                }
+            }
         }
     }
 

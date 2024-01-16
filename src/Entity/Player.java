@@ -22,6 +22,7 @@ public class Player extends Entity {
     public int hasKeyB = 0;
     public int hasKeyR = 0;
     public int hasTeddybear = 0;
+    public int karma = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -88,6 +89,7 @@ public class Player extends Entity {
         hasKeyB = 0;
         hasKeyR = 0;
         hasTeddybear = 0;
+        karma = 0;
     }
 
     public void getPlayerImage() {
