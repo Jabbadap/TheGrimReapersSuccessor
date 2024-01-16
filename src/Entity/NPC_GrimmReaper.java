@@ -2,8 +2,6 @@ package Entity;
 
 import Main.GamePanel;
 
-import java.util.Arrays;
-
 public class NPC_GrimmReaper extends Entity {
 
     public NPC_GrimmReaper(GamePanel gp) {
@@ -78,7 +76,6 @@ public class NPC_GrimmReaper extends Entity {
         }
         if (dialogueFinished) {
             dialogueIndex = 0;
-            System.out.println(gp.player.karma);
             if(gp.player.hasTeddybear == 0) {
                 dialogues[0] = "Go to the first dungeon, I am sure you can do it!";
             }

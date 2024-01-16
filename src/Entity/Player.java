@@ -60,7 +60,7 @@ public class Player extends Entity {
          */
 
         worldX = gp.tileSize * 38;
-        worldY = gp.tileSize * 50;
+        worldY = gp.tileSize * 54;
 
         speed = 4;
         direction = "Down";
@@ -231,45 +231,63 @@ public class Player extends Entity {
                     gp.obj[index] = null;
                     gp.ui.showMessage("You got a key!");
                     break;
-                case "KeyY":
-                    hasKeyY++;
-                    gp.obj[index] = null;
-                    gp.ui.showMessage("You got a key!");
-                    break;
                 case "Teddybear":
                     hasTeddybear++;
                     gp.obj[index] = null;
                     gp.ui.showMessage("You got the Teddybear!");
                     break;
-                case "DoorG":
-                    if(hasKeyG > 0) {
-                        gp.obj[index] = null;
-                        gp.ui.showMessage("You opened a door!");
-                        hasKeyG--; }
-                    else { gp.ui.showMessage("You need a key!"); }
-                    break;
-                case "DoorY":
-                    if(hasKeyY > 0) {
-                        gp.obj[index] = null;
-                        gp.ui.showMessage("You opened a door!");
-                        hasKeyY--; }
-                    else { gp.ui.showMessage("You need a key!"); }
-                    break;
                 case "DoorB":
-                    if(hasKeyB > 0) {
+                    if (hasKeyB > 0) {
                         gp.obj[index] = null;
                         gp.ui.showMessage("You opened a door!");
-                        hasKeyB--; }
-                    else { gp.ui.showMessage("You need a key!"); }
+                        hasKeyB--;
+                    } else {
+                        gp.ui.showMessage("You need a key!");
+                    }
                     break;
                 case "DoorR":
-                    if(hasKeyR > 0) {
+                    if (hasKeyR > 0) {
                         gp.obj[index] = null;
-                        gp.ui.showMessage("You opened the final door!");
-                        hasKeyR--;
-                        gp.ui.gameFinished = true; }
-                    else { gp.ui.showMessage("You need a key!"); }
-                    break; } } }
+                        gp.ui.showMessage("You opened the door!");
+                        hasKeyR--; }
+                        // gp.ui.gameFinished = true; }
+                    if (hasKeyR <= 0) {
+                        gp.ui.showMessage("You need a key!");
+                        }
+                        break;
+                case "DoorG":
+                    if (hasKeyG > 0) {
+                        gp.obj[index] = null;
+                        gp.ui.showMessage("You opened the door!");
+                        hasKeyG--; }
+                    // gp.ui.gameFinished = true; }
+                    if (hasKeyG <= 0) {
+                        gp.ui.showMessage("You need a key!");
+                    }
+                    break;
+            }
+        }
+    }
+                //case "KeyY":
+                //    hasKeyY++;
+                //    gp.obj[index] = null;
+                //    gp.ui.showMessage("You got a key!");
+                //    break;
+                //case "DoorY":
+                //    if(hasKeyY > 0) {
+                //        gp.obj[index] = null;
+                //        gp.ui.showMessage("You opened a door!");
+                //        hasKeyY--; }
+                //    else { gp.ui.showMessage("You need a key!"); }
+                //    break;
+                //case "DoorB":
+                //    if(hasKeyB > 0) {
+                //        gp.obj[index] = null;
+                //        gp.ui.showMessage("You opened a door!");
+                //        hasKeyB--; }
+                //    else { gp.ui.showMessage("You need a key!"); }
+                //    break;
+
 
     public void interactNPC(int i) {
         if(gp.keyH.enterPressed) {

@@ -20,8 +20,8 @@ public class EventHandler {
             eventRect[col][row] = new EventRect();
             eventRect[col][row].x = 23;
             eventRect[col][row].y = 23;
-            eventRect[col][row].width = 2;
-            eventRect[col][row].height = 2;
+            eventRect[col][row].width = gp.tileSize;
+            eventRect[col][row].height = gp.tileSize;
             eventRect[col][row].eventRectDefaultX = eventRect[col][row].x;
             eventRect[col][row].eventRectDefaultY = eventRect[col][row].y;
 
@@ -47,8 +47,8 @@ public class EventHandler {
             if(hit(38, 56, "Down")) {
                 damagePit(37,57, gp.dialogueState);
             }
-            if(hit(39,56,"Down")) {
-                healingPool(38,57,gp.dialogueState);
+            if(hit(21,36,"Right")) {
+                healingPool(22,36,gp.dialogueState);
             }
         }
     }

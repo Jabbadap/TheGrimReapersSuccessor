@@ -33,12 +33,14 @@ public class NPC_1 extends Entity {
         dialogues[1] = "I lost my Teddybear :(\nCan you find him for me?\n" +
                 "If you see my friend Bobby please don't hurt him." +
                 "\nHe looks a bit scary but he is really nice!\n(If you don't hurt him)";
+        dialogues[2] = "I also found this key, you can have it!";
     }
 
     @Override
     public void dialogueAction() {
-        if (dialogueIndex == 1 && !dialogueFinished) {
-            gp.obj[0] = null;
+        if (dialogueIndex == 2 && !dialogueFinished) {
+            gp.player.hasKeyG = 1;
+            // gp.obj[0] = null;
             dialogueFinished = true;
         }
         if(gp.player.hasTeddybear == 1) {
@@ -51,11 +53,10 @@ public class NPC_1 extends Entity {
                 dialogues[0] = "You killed my friend...\nHow COULD you?";
                 gp.player.karma = -1;
             }
-            if(gp.player.hasKeyG == 0) {
-                gp.player.hasKeyG++;
-                gp.ui.showMessage("You got a key!");
-                dialogueFinished = true;
-            }
+            // if(gp.player.hasKeyG == 0) {
+            //     gp.player.hasKeyG++;
+            //     gp.ui.showMessage("You got a key!");
+            // }
         }
     }
 
