@@ -37,16 +37,18 @@ public class NPC_1 extends Entity {
 
     @Override
     public void dialogueAction() {
+        if (dialogueIndex == 1 && !dialogueFinished) {
+            gp.obj[0] = null;
+            dialogueFinished = true;
+        }
         if(gp.player.hasTeddybear == 1) {
             dialogueIndex = 0;
             if(gp.monster[0] != null) {
                 dialogues[0] = "Thank you so much for finding my teddybear and not killing my friend!!";
-                dialogues[1] = ":)";
                 gp.player.karma = 1;
             }
             if(gp.monster[0] == null) {
                 dialogues[0] = "You killed my friend...\nHow COULD you?";
-                dialogues[1] = ":(";
                 gp.player.karma = -1;
             }
             if(gp.player.hasKeyG == 0) {

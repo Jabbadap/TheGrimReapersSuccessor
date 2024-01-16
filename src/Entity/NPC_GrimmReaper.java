@@ -48,7 +48,7 @@ public class NPC_GrimmReaper extends Entity {
                 What I am trying to say is that it's not as bad as it sounds like.
                 You also have some lovely people waiting for you! <3""";
         dialogues[12] = "But that's not the reason we came to this place specifically..." +
-                "\n So, as you might have figured by now (or not), I am the Grimm Reaper, " +
+                "\nSo, as you might have figured by now (or not), I am the Grimm Reaper, " +
                 "but please just call me Grimm!";
         dialogues[13] = """
                 The thing is, I have been doing this for a very, very, very long time and have gotten really tired.
@@ -67,10 +67,11 @@ public class NPC_GrimmReaper extends Entity {
                 right person!
                 So if you are interested, I'd say give it a go!:)""";
         dialogues[20] = "Here is the key for the first dungeon!";
+        dialogues[21] = "Je moeder";
     }
 
     public void dialogueAction() {
-        if (dialogueIndex == 20 && !dialogueFinished) {
+        if (dialogueIndex == 21 && !dialogueFinished) {
             gp.player.hasKeyB++;
             gp.ui.showMessage("You got a key!");
             dialogueFinished = true;
@@ -86,15 +87,20 @@ public class NPC_GrimmReaper extends Entity {
                     dialogues[0] = "...I clearly misjudged you...";
                 }
                 if(gp.player.karma > 0) {
-                    dialogues[0] = "I knew you could do it!";
+                    if(gp.monster[0] != null) {
+                        dialogues[0] = "I knew you could do it!";
+                    }
+                    if(gp.monster[0] == null) {
+                        dialogues[0] = "So you gave his Teddybear and then went back to kill his friend..." +
+                                "\nYou are terrible!";
+                    }
                 }
                 if(gp.player.karma == 0) {
                     if(gp.monster[0] != null) {
-                        dialogues[0] = "So, you got the teddybear but didn't give it to the kid?!";
+                        dialogues[0] = "So you kept his friend alive but stole his Teddybear???";
                     }
                     if(gp.monster[0] == null) {
-                        dialogues[0] = "So, you got the teddybear but didn't give it to the kid?!" +
-                                "\nAND killed his friend???";
+                        dialogues[0] = "So you killed his friend AND stole his Teddybear???";
                     }
                 }
             }
