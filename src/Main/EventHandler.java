@@ -86,7 +86,7 @@ public class EventHandler {
     public void healingPool(int col, int row, int gameState) {
         if(gp.keyH.enterPressed && gp.player.life < gp.player.maxLife) {
             gp.gameState = gameState;
-            gp.ui.currentDialogue = "You drink the water.\nYou recover 1 life!";
+            gp.ui.currentDialogue = "You drink the water.\nYou recover 0.5 life!";
             gp.player.life += 1;
         }
     }
