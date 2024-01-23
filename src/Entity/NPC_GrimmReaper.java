@@ -74,6 +74,7 @@ public class NPC_GrimmReaper extends Entity {
             gp.ui.showMessage("You got a key!");
             dialogueFinished = true;
         }
+
         if (dialogueFinished) {
             dialogueIndex = 0;
             if(gp.player.hasTeddybear == 0) {
