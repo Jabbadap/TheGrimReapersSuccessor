@@ -90,7 +90,7 @@ public class EventHandler {
                 gp.ui.currentDialogue = "You drink the water.\nYou recover 0.5 life!";
                 gp.player.life += 1;
             }
-            if(gp.player.life == gp.player.maxLife) {
+            if(gp.player.life >= gp.player.maxLife) {
                 gp.ui.currentDialogue = "You are not thirsty";
             }
         }

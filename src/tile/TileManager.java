@@ -49,6 +49,7 @@ public class TileManager {
         setup(19, "Pillows", true);
         setup(20, "Rug1", false);
         setup(21, "Rug2", false);
+        setup(22, "Sink", true);
     }
 
     public void setup(int index, String imageName, boolean collision) {
