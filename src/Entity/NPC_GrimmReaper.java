@@ -64,7 +64,7 @@ public class NPC_GrimmReaper extends Entity {
                 To test my new successor I made this place, containing 3 dungeons to see if you are the 
                 right person!
                 So if you are interested, I'd say give it a go!:)""";
-        dialogues[20] = "I will give you the key for the first dungeon!";
+        dialogues[20] = "I will give you the key for the first dungeon!\nCome talk to me once you're ready!";
         dialogues[21] = "Je moeder";
     }
 
@@ -77,7 +77,12 @@ public class NPC_GrimmReaper extends Entity {
         if (dialogueFinished) {
             dialogueIndex = 0;
             if(gp.player.hasTeddybear == 0) {
-                dialogues[0] = "Go to the first dungeon, I am sure you can do it!";
+                if(gp.monster[0] != null) {
+                    dialogues[0] = "Go to the first dungeon, I am sure you can do it!";
+                }
+                if(gp.monster[0] == null) {
+                    dialogues[0] = "You just killed his friend and didn't even get the Teddybear!";
+                }
             }
             if(gp.player.hasTeddybear == 1) {
                 if(gp.player.karma < 0) {
