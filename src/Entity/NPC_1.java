@@ -40,23 +40,20 @@ public class NPC_1 extends Entity {
     public void dialogueAction() {
         if (dialogueIndex == 2 && !dialogueFinished) {
             gp.player.hasKeyG = 1;
-            // gp.obj[0] = null;
+            gp.ui.showMessage("You got a key!");
             dialogueFinished = true;
         }
-        if(gp.player.hasTeddybear == 1) {
+        if(dialogueFinished) {
             dialogueIndex = 0;
-            if(gp.monster[0] != null) {
-                dialogues[0] = "Thank you so much for finding my teddybear and not killing my friend!!";
-                gp.player.karma = 1;
-            }
+            dialogues[0] = "You can do it!";
             if(gp.monster[0] == null) {
                 dialogues[0] = "You killed my friend...\nHow COULD you?";
                 gp.player.karma = -1;
             }
-            // if(gp.player.hasKeyG == 0) {
-            //     gp.player.hasKeyG++;
-            //     gp.ui.showMessage("You got a key!");
-            // }
+            else if(gp.player.hasTeddybear == 1) {
+                dialogues[0] = "Thank you so much for finding my Teddybear and not killing my friend!!";
+                gp.player.karma = 1;
+            }
         }
     }
 
